@@ -1,0 +1,183 @@
+---
+import Mail from '@lucide/astro/icons/mail';
+import Phone from '@lucide/astro/icons/phone';
+import MapPin from '@lucide/astro/icons/map-pin';
+import Clock from '@lucide/astro/icons/clock';
+import MessageCircle from '@lucide/astro/icons/message-circle';
+import Send from '@lucide/astro/icons/send';
+import Lock from '@lucide/astro/icons/lock';
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+import { site, services } from '../data/site';
+
+const topics = [...services.map((s) => s.title), 'Kemitraan KAP', 'Lainnya'];
+
+const channels = [
+  site.whatsapp && {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: `+${site.whatsapp}`,
+    href: `https://wa.me/${site.whatsapp}`,
+  },
+  site.email && { icon: Mail, label: 'Email', value: site.email, href: `mailto:${site.email}` },
+  site.phone && {
+    icon: Phone,
+    label: 'Telepon',
+    value: site.phone,
+    href: `tel:${site.phone.replace(/[^\d+]/g, '')}`,
+  },
+  site.address && { icon: MapPin, label: 'Kantor', value: site.address },
+  site.hours && { icon: Clock, label: 'Jam Layanan', value: site.hours },
+].filter(Boolean) as { icon: typeof Mail; label: string; value: string; href?: string }[];
+---
+
+<section id="kontak" class="py-20 sm:py-24 lg:py-32">
+  <div class="container-x">
+    <div class="card overflow-hidden lg:grid lg:grid-cols-12">
+      <div class="relative overflow-hidden bg-navy-900 p-8 text-white sm:p-10 lg:col-span-5 lg:p-12">
+        <div class="grid-lines-light pointer-events-none absolute inset-0" aria-hidden="true"></div>
+        <div class="relative">
+          <p class="eyebrow eyebrow-light reveal">Hubungi Kami</p>
+          <h2 class="reveal mt-5 font-display text-3xl leading-[1.15] font-medium tracking-tight !text-white sm:text-4xl" style="--d:80ms">
+            Mari diskusikan kebutuhan bisnis Anda.
+          </h2>
+          <p class="reveal mt-5 leading-relaxed text-navy-100" style="--d:140ms">
+            Ceritakan tantangan pajak, pembukuan, atau sistem yang sedang Anda hadapi. Tim kami akan
+            menghubungi Anda kembali untuk menjadwalkan sesi konsultasi.
+          </p>
+
+          <ul class="mt-10 space-y-5">
+            {
+              channels.map(({ icon: Icon, label, value, href }) => (
+                <li class="reveal flex items-start gap-4">
+                  <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-gold-300">
+                    <Icon class="size-5" aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span class="block text-xs font-semibold tracking-[0.14em] text-gold-300 uppercase">{label}</span>
+                    {href ? (
+                      <a href={href} class="mt-0.5 block text-base font-medium break-all text-white hover:text-gold-200">
+                        {value}
+                      </a>
+                    ) : (
+                      <span class="mt-0.5 block text-base text-white">{value}</span>
+                    )}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <form
+        id="contact-form"
+        class="p-8 sm:p-10 lg:col-span-7 lg:p-12"
+        data-whatsapp={site.whatsapp}
+        data-email={site.email}
+        novalidate
+      >
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="cf-name" class="mb-2 block text-sm font-medium text-navy-900">Nama lengkap</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required class="field" placeholder="Nama Anda" />
+          </div>
+          <div>
+            <label for="cf-company" class="mb-2 block text-sm font-medium text-navy-900">Perusahaan</label>
+            <input id="cf-company" name="company" type="text" autocomplete="organization" class="field" placeholder="Nama perusahaan" />
+          </div>
+          <div>
+            <label for="cf-email" class="mb-2 block text-sm font-medium text-navy-900">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required class="field" placeholder="nama@perusahaan.com" />
+          </div>
+          <div>
+            <label for="cf-phone" class="mb-2 block text-sm font-medium text-navy-900">No. telepon / WhatsApp</label>
+            <input id="cf-phone" name="phone" type="tel" autocomplete="tel" class="field" placeholder="08xx xxxx xxxx" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="cf-topic" class="mb-2 block text-sm font-medium text-navy-900">Layanan yang dibutuhkan</label>
+            <div class="relative">
+              <select id="cf-topic" name="topic" class="field appearance-none pr-11">
+                {topics.map((t) => <option value={t}>{t}</option>)}
+              </select>
+              <ChevronDown class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-navy-700" aria-hidden="true" />
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="cf-message" class="mb-2 block text-sm font-medium text-navy-900">Pesan</label>
+            <textarea id="cf-message" name="message" rows="5" required class="field resize-y" placeholder="Jelaskan singkat kebutuhan atau tantangan yang Anda hadapi"></textarea>
+          </div>
+        </div>
+
+        <p id="cf-status" class="mt-4 hidden text-sm" role="status" aria-live="polite"></p>
+
+        <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p class="flex items-center gap-2 text-xs text-slate-500">
+            <Lock class="size-3.5" aria-hidden="true" />
+            Informasi Anda kami jaga kerahasiaannya.
+          </p>
+          <button type="submit" class="btn btn-primary">
+            Kirim Pesan
+            <Send class="size-4" aria-hidden="true" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('cf-status')!;
+  const topic = document.getElementById('cf-topic') as HTMLSelectElement;
+
+  // Tautan "Diskusikan kebutuhan" / "Ajukan Kemitraan" memilih topik secara otomatis
+  document.querySelectorAll<HTMLAnchorElement>('a[data-service]').forEach((a) => {
+    a.addEventListener('click', () => {
+      const v = a.dataset.service!;
+      if ([...topic.options].some((o) => o.value === v)) topic.value = v;
+    });
+  });
+
+  const show = (msg: string, ok: boolean) => {
+    status.textContent = msg;
+    status.className = `mt-4 text-sm ${ok ? 'text-emerald-700' : 'text-red-700'}`;
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea');
+    const firstInvalid = [...fields].find((el) => !el.checkValidity());
+    if (firstInvalid) {
+      show('Mohon lengkapi nama, email yang valid, dan pesan Anda.', false);
+      firstInvalid.focus();
+      return;
+    }
+
+    const d = new FormData(form);
+    const get = (k: string) => String(d.get(k) ?? '').trim();
+    const lines: (string | null)[] = [
+      `Halo Avikara Group, saya ingin berkonsultasi mengenai: ${get('topic')}`,
+      '',
+      `Nama: ${get('name')}`,
+      get('company') ? `Perusahaan: ${get('company')}` : null,
+      `Email: ${get('email')}`,
+      get('phone') ? `Telepon: ${get('phone')}` : null,
+      '',
+      get('message'),
+    ];
+    const text = lines.filter((l) => l !== null).join('\n');
+
+    const wa = form.dataset.whatsapp;
+    const email = form.dataset.email;
+    if (wa) {
+      window.open(`https://wa.me/${wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      show('WhatsApp dibuka di tab baru. Silakan kirim pesan yang sudah kami siapkan.', true);
+    } else if (email) {
+      const subject = `Konsultasi ${get('topic')} - ${get('company') || get('name')}`;
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+      show('Aplikasi email Anda dibuka. Silakan kirim pesan yang sudah kami siapkan.', true);
+    } else {
+      show('Maaf, kanal kontak belum tersedia.', false);
+    }
+  });
+</script>

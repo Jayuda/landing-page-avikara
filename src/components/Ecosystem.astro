@@ -1,0 +1,173 @@
+---
+import { Image } from 'astro:assets';
+import Landmark from '@lucide/astro/icons/landmark';
+import Calculator from '@lucide/astro/icons/calculator';
+import Cpu from '@lucide/astro/icons/cpu';
+import GraduationCap from '@lucide/astro/icons/graduation-cap';
+import Handshake from '@lucide/astro/icons/handshake';
+import markWhite from '../assets/brand/mark-white.png';
+
+const units = [
+  {
+    icon: Landmark,
+    name: 'Avikara Tax Advisory',
+    sub: 'KKP Riza S. Permana (BKP B)',
+    desc: 'Tax compliance & advisory',
+  },
+  {
+    icon: Calculator,
+    name: 'Avikara Accounting Service',
+    sub: 'Bookkeeping & reporting',
+    desc: 'Pembukuan & laporan keuangan',
+  },
+  {
+    icon: Cpu,
+    name: 'Avikara Technology',
+    sub: 'ERP & AI',
+    desc: 'In-house IT advisory, system & AI integration',
+  },
+  {
+    icon: GraduationCap,
+    name: 'Avikara Academy',
+    sub: 'Training & Development',
+    desc: 'Pelatihan pajak, akuntansi & sistem',
+  },
+];
+
+const steps = [
+  {
+    title: 'Lead Acquisition',
+    desc: 'Identifikasi kebutuhan klien: pajak, akuntansi, ERP/AI, dan audit.',
+    owner: 'Avikara & Partner',
+  },
+  {
+    title: 'Initial Assessment',
+    desc: 'Evaluasi kelayakan, uji independensi, dan penyusunan ruang lingkup kerja.',
+    owner: 'Avikara & Partner',
+  },
+  {
+    title: 'Contracting',
+    desc: 'Penerbitan Engagement Letter atau MoU resmi dengan klien.',
+    owner: 'Penyedia jasa utama',
+  },
+  {
+    title: 'Execution',
+    desc: 'Implementasi ERP/AI, pembukuan dan pajak, atau audit oleh tim terkait.',
+    owner: 'Tim operasional',
+  },
+  {
+    title: 'Post Project Review',
+    desc: 'Evaluasi kepuasan klien dan tindak lanjut perbaikan berkelanjutan.',
+    owner: 'Avikara & Partner',
+  },
+];
+---
+
+<section id="ekosistem" class="relative overflow-hidden bg-navy-950 py-20 text-white sm:py-24 lg:py-32">
+  <div
+    class="grid-lines-light pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_55%_at_50%_40%,black,transparent)]"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="container-x relative">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow eyebrow-light reveal justify-center">Ekosistem Avikara Group</p>
+      <h2 class="h-section reveal mt-5 !text-white" style="--d:80ms">
+        Tri-Triangle Alliance: keahlian lengkap dalam satu ekosistem.
+      </h2>
+      <p class="reveal mt-5 leading-relaxed text-navy-200" style="--d:140ms">
+        Setiap unit memiliki keahlian spesifik, bekerja di bawah satu payung, dan diperkuat oleh
+        kemitraan strategis dengan Kantor Akuntan Publik untuk kebutuhan audit statuta.
+      </p>
+    </div>
+
+    <div class="mt-16 lg:mt-20">
+      <!-- Hub -->
+      <div class="reveal relative mx-auto max-w-sm">
+        <div
+          class="relative rounded-2xl border border-gold-400/40 bg-gradient-to-b from-navy-800 to-navy-900 p-6 text-center shadow-2xl shadow-black/30"
+        >
+          <Image src={markWhite} alt="" width={72} height={53} densities={[1, 2]} class="mx-auto h-11 w-auto" />
+          <p class="mt-4 text-lg font-semibold tracking-[0.2em]">AVIKARA GROUP</p>
+          <p class="mt-1 text-xs tracking-[0.18em] text-gold-300 uppercase">Umbrella Brand</p>
+        </div>
+        <span class="absolute top-full left-1/2 hidden h-10 w-px -translate-x-1/2 bg-gold-400/60 lg:block" aria-hidden="true"></span>
+      </div>
+
+      <!-- Units -->
+      <div class="relative mt-6 lg:mt-20">
+        <span class="absolute -top-10 right-[calc((100%-4.5rem)/8)] left-[calc((100%-4.5rem)/8)] hidden h-px bg-gold-400/60 lg:block" aria-hidden="true"></span>
+        <span class="absolute -bottom-10 right-[calc((100%-4.5rem)/8)] left-[calc((100%-4.5rem)/8)] hidden h-px border-t border-dashed border-gold-400/50 lg:block" aria-hidden="true"></span>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {
+            units.map(({ icon: Icon, name, sub, desc }, i) => (
+              <li
+                class="reveal relative rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition hover:border-gold-400/50 hover:bg-white/[0.07]"
+                style={`--d:${i * 90}ms`}
+              >
+                <span class="absolute -top-10 left-1/2 hidden h-10 w-px -translate-x-1/2 bg-gold-400/60 lg:block" aria-hidden="true" />
+                <span class="absolute -bottom-10 left-1/2 hidden h-10 w-px -translate-x-1/2 border-l border-dashed border-gold-400/50 lg:block" aria-hidden="true" />
+                <span class="inline-flex size-11 items-center justify-center rounded-xl bg-gold-500/15 text-gold-300">
+                  <Icon class="size-5" aria-hidden="true" />
+                </span>
+                <h3 class="mt-4 text-base font-semibold !text-white">{name}</h3>
+                <p class="mt-1 text-xs font-medium text-gold-300">{sub}</p>
+                <p class="mt-3 text-sm leading-relaxed text-navy-200">{desc}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- KAP partner -->
+      <div class="reveal relative mx-auto mt-6 max-w-xl lg:mt-20">
+        <span class="absolute -top-10 left-1/2 hidden h-10 w-px -translate-x-1/2 border-l border-dashed border-gold-400/50 lg:block" aria-hidden="true"></span>
+        <div
+          class="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-gold-400/60 bg-gold-500/[0.06] p-6 text-center sm:flex-row sm:text-left"
+        >
+          <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-gold-500 text-navy-950">
+            <Handshake class="size-6" aria-hidden="true" />
+          </span>
+          <div>
+            <p class="text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">Strategic Mutual Alliance</p>
+            <h3 class="mt-1 text-lg font-semibold !text-white">Partner KAP</h3>
+            <p class="mt-1 text-sm text-navy-200">Statutory audit &amp; Agreed-Upon Procedures (AUP) oleh Kantor Akuntan Publik rekanan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="alur-title" class="py-20 sm:py-24 lg:py-32">
+  <div class="container-x">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow reveal justify-center">Alur Kerja</p>
+      <h2 id="alur-title" class="h-section reveal mt-5" style="--d:80ms">
+        Proses yang jelas, terukur, dan terdokumentasi.
+      </h2>
+    </div>
+
+    <ol class="relative mt-16 grid gap-8 md:grid-cols-5 md:gap-6">
+      <span
+        class="absolute top-7 right-[10%] left-[10%] hidden h-px bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 md:block"
+        aria-hidden="true"
+      >
+      </span>
+      {
+        steps.map((s, i) => (
+          <li class="reveal relative flex gap-5 md:flex-col md:items-center md:text-center" style={`--d:${i * 90}ms`}>
+            <span class="relative z-10 inline-flex size-14 shrink-0 items-center justify-center rounded-full border-4 border-ivory bg-navy-900 font-display text-lg font-medium text-gold-300 shadow-lg shadow-navy-900/20">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3 class="text-base font-semibold md:mt-5">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
+              <p class="mt-3 inline-block rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700">{s.owner}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

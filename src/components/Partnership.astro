@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import ArrowLeftRight from '@lucide/astro/icons/arrow-left-right';
+import Scale from '@lucide/astro/icons/scale';
+import Lock from '@lucide/astro/icons/lock';
+import FileText from '@lucide/astro/icons/file-text';
+import Megaphone from '@lucide/astro/icons/megaphone';
+import cityImg from '../assets/img/bg-city.jpg';
+
+const nextSteps = [
+  { icon: Lock, title: 'Non-Disclosure Agreement', desc: 'Melindungi kerahasiaan data bisnis, data klien, dan strategi antar-partner.' },
+  { icon: FileText, title: 'Master Services Agreement', desc: 'Mengatur pembagian peran, SLA, dan mekanisme komunikasi secara formal.' },
+  { icon: Megaphone, title: 'Co-Branded Marketing', desc: 'Katalog layanan terpadu untuk ditawarkan kepada basis klien masing-masing.' },
+];
+---
+
+<section id="kemitraan" class="relative isolate overflow-hidden py-20 text-white sm:py-24 lg:py-32">
+  <Image
+    src={cityImg}
+    alt=""
+    widths={[960, 1440, 2000]}
+    sizes="100vw"
+    class="absolute inset-0 -z-20 size-full object-cover"
+  />
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-navy-950/95 via-navy-900/92 to-navy-950/85" aria-hidden="true"></div>
+
+  <div class="container-x">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <p class="eyebrow eyebrow-light reveal">Kemitraan KAP</p>
+        <h2 class="h-section reveal mt-5 !text-white" style="--d:80ms">
+          Strategic Mutual Alliance bagi Kantor Akuntan Publik.
+        </h2>
+        <p class="reveal mt-5 leading-relaxed text-navy-100" style="--d:140ms">
+          Kami mengundang KAP rekanan untuk saling memperkuat basis klien dan cakupan layanan:
+          audit statuta dari KAP, serta konsultasi pajak dan pengembangan sistem dari Avikara.
+        </p>
+        <a href="#kontak" class="btn btn-gold reveal mt-8" style="--d:200ms" data-service="Kemitraan KAP">
+          Ajukan Kemitraan
+          <ArrowRight class="size-4" aria-hidden="true" />
+        </a>
+      </div>
+
+      <div class="grid gap-5 lg:col-span-7">
+        <div class="reveal rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md sm:p-7" style="--d:120ms">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex size-10 items-center justify-center rounded-lg bg-gold-500/15 text-gold-300">
+              <ArrowLeftRight class="size-5" aria-hidden="true" />
+            </span>
+            <h3 class="text-lg font-semibold !text-white">Mutual Referral Agreement</h3>
+          </div>
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-xl bg-navy-950/40 p-4">
+              <p class="text-xs font-semibold tracking-[0.14em] text-gold-300 uppercase">Avikara ke KAP</p>
+              <p class="mt-2 text-sm leading-relaxed text-navy-100">Klien yang membutuhkan audit tahunan atau persyaratan perbankan dirujuk ke KAP rekanan.</p>
+            </div>
+            <div class="rounded-xl bg-navy-950/40 p-4">
+              <p class="text-xs font-semibold tracking-[0.14em] text-gold-300 uppercase">KAP ke Avikara</p>
+              <p class="mt-2 text-sm leading-relaxed text-navy-100">Klien yang membutuhkan perbaikan pembukuan, TP Doc, atau asistensi SP2DK dan pemeriksaan pajak.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-2xl border border-gold-400/30 bg-gold-500/[0.08] p-6 backdrop-blur-md sm:p-7" style="--d:200ms">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex size-10 items-center justify-center rounded-lg bg-gold-500 text-navy-950">
+              <Scale class="size-5" aria-hidden="true" />
+            </span>
+            <h3 class="text-lg font-semibold !text-white">Prinsip Independensi</h3>
+          </div>
+          <ul class="mt-4 space-y-3 text-sm leading-relaxed text-navy-100">
+            <li>
+              Bila Avikara menangani <strong class="text-white">bookkeeping</strong> suatu klien, KAP rekanan
+              tidak melakukan general audit atas klien tersebut untuk menghindari <em>self-review threat</em>.
+              Audit diarahkan ke KAP jaringan sekunder, atau KAP rekanan mengambil penugasan non-audit seperti AUP.
+            </li>
+            <li>
+              Untuk klien yang hanya menggunakan <strong class="text-white">tax advisory</strong> atau
+              pendampingan pemeriksaan pajak, KAP rekanan tetap sah dan independen melakukan general audit.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 border-t border-white/10 pt-10">
+      <p class="reveal text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">Langkah Kemitraan</p>
+      <ol class="mt-6 grid gap-6 md:grid-cols-3">
+        {
+          nextSteps.map(({ icon: Icon, title, desc }, i) => (
+            <li class="reveal flex gap-4" style={`--d:${i * 90}ms`}>
+              <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-gold-300">
+                <Icon class="size-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h3 class="text-sm font-semibold !text-white">
+                  <span class="text-gold-400">{String(i + 1).padStart(2, '0')}.</span> {title}
+                </h3>
+                <p class="mt-1 text-sm leading-relaxed text-navy-200">{desc}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

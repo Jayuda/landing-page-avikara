@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import Layers from '@lucide/astro/icons/layers';
+import Scale from '@lucide/astro/icons/scale';
+import Code from '@lucide/astro/icons/code';
+import FileCheck from '@lucide/astro/icons/file-check';
+import officeImg from '../assets/img/bg-office.jpg';
+
+const pillars = [
+  {
+    letter: 'A',
+    word: 'Advancement',
+    desc: 'Kemajuan melalui inovasi teknologi ERP dan AI yang relevan dengan kebutuhan bisnis.',
+  },
+  {
+    letter: 'Vi',
+    word: 'Vision',
+    desc: 'Visi strategis dalam perencanaan keuangan dan perpajakan jangka panjang.',
+  },
+  {
+    letter: 'Ka',
+    word: 'Knowledge',
+    desc: 'Pengetahuan teknis dan pemahaman kepatuhan regulasi yang mendalam.',
+  },
+  {
+    letter: 'Ra',
+    word: 'Reliability',
+    desc: 'Keandalan dan integritas dalam setiap layanan profesi yang kami berikan.',
+  },
+];
+
+const reasons = [
+  {
+    icon: Layers,
+    title: 'One-Stop Business Advisory',
+    desc: 'Pajak, akuntansi, dan teknologi ditangani terpadu, sehingga tidak ada celah antara pembukuan, kepatuhan, dan sistem.',
+  },
+  {
+    icon: Scale,
+    title: 'Independensi yang dijaga',
+    desc: 'Kami memisahkan layanan pembukuan dan audit statuta untuk menghindari benturan kepentingan, sesuai kode etik profesi.',
+  },
+  {
+    icon: Code,
+    title: 'Teknologi dikerjakan in-house',
+    desc: 'Desain, coding, kustomisasi modul, hingga implementasi dipimpin langsung oleh IT Partner internal kami.',
+  },
+  {
+    icon: FileCheck,
+    title: 'Siap diperiksa & diaudit',
+    desc: 'Laporan keuangan disusun selaras dengan regulasi perpajakan Indonesia dan siap untuk pemeriksaan independen.',
+  },
+];
+---
+
+<section id="tentang" class="py-20 sm:py-24 lg:py-32">
+  <div class="container-x">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-6">
+        <p class="eyebrow reveal">Tentang Avikara</p>
+        <h2 class="h-section reveal mt-5" style="--d:80ms">
+          Visi, pengetahuan, inovasi, dan keandalan untuk kemajuan bisnis klien.
+        </h2>
+      </div>
+      <div class="reveal space-y-5 lg:col-span-6 lg:pt-12" style="--d:160ms">
+        <p class="lead">
+          Dunia usaha kini menuntut integrasi antara kepatuhan pajak, keandalan laporan keuangan,
+          dan efisiensi berbasis teknologi. Banyak perusahaan menengah tersendat karena pembukuan
+          belum terhubung dengan regulasi perpajakan dan belum siap diaudit secara independen.
+        </p>
+        <p class="leading-relaxed text-slate-600">
+          Avikara Group hadir sebagai <strong class="font-semibold text-navy-900"
+            >One-Stop Intelligent Business Advisory</strong
+          >: solusi menyeluruh yang memadukan keahlian pajak, akuntansi, serta ERP &amp; AI yang
+          dikembangkan secara in-house.
+        </p>
+      </div>
+    </div>
+
+    <ul class="mt-16 grid gap-5 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+      {
+        pillars.map((p, i) => (
+          <li
+            class="card reveal group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:border-gold-300"
+            style={`--d:${i * 90}ms`}
+          >
+            <span
+              class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-gold-500 to-gold-300 transition-transform duration-500 group-hover:scale-x-100"
+              aria-hidden="true"
+            />
+            <span class="font-display text-5xl font-medium text-gold-500">{p.letter}</span>
+            <h3 class="mt-5 text-lg font-semibold">{p.word}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="bg-sand py-20 sm:py-24 lg:py-32">
+  <div class="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <div class="reveal relative">
+      <div class="overflow-hidden rounded-[2rem] shadow-xl shadow-navy-950/10">
+        <Image
+          src={officeImg}
+          alt="Ruang kerja kantor yang modern dan terang"
+          widths={[480, 720, 960, 1200]}
+          sizes="(min-width: 1024px) 45vw, 92vw"
+          class="aspect-[5/4] w-full object-cover"
+        />
+      </div>
+      <figure
+        class="relative -mt-16 ml-4 max-w-md rounded-2xl bg-navy-900 p-6 text-white shadow-2xl shadow-navy-950/30 sm:ml-10 sm:p-7"
+      >
+        <blockquote class="font-display text-lg leading-snug text-white/95">
+          "Seluruh supervisi teknis, rekayasa kode, kustomisasi modul, hingga implementasi berada
+          di bawah kepemimpinan langsung IT Partner internal kami."
+        </blockquote>
+        <figcaption class="mt-4 text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">
+          Kapabilitas In-House Avikara
+        </figcaption>
+      </figure>
+    </div>
+
+    <div>
+      <p class="eyebrow reveal">Mengapa Avikara</p>
+      <h2 class="h-section reveal mt-5" style="--d:80ms">
+        Satu pintu untuk pajak, akuntansi, dan teknologi.
+      </h2>
+      <p class="lead reveal mt-5" style="--d:120ms">
+        Kami tidak hanya menyelesaikan masalah hari ini, tetapi membangun sistem yang membuat bisnis
+        Anda tetap patuh dan efisien ke depannya.
+      </p>
+      <ul class="mt-10 grid gap-7 sm:grid-cols-2">
+        {
+          reasons.map(({ icon: Icon, title, desc }, i) => (
+            <li class="reveal" style={`--d:${160 + i * 80}ms`}>
+              <span class="inline-flex size-11 items-center justify-center rounded-xl bg-navy-900 text-gold-400">
+                <Icon class="size-5" aria-hidden="true" />
+              </span>
+              <h3 class="mt-4 text-base font-semibold">{title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-600">{desc}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

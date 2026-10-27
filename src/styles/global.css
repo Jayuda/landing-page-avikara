@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/plus-jakarta-sans';
+@import '@fontsource-variable/fraunces';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+
+  /* Brand: navy & gold, diambil dari logo Avikara Group */
+  --color-navy-50: #eef1f8;
+  --color-navy-100: #d9dfee;
+  --color-navy-200: #b3bedb;
+  --color-navy-300: #8696c2;
+  --color-navy-400: #5a6ea6;
+  --color-navy-500: #3a4f8a;
+  --color-navy-600: #2a3d72;
+  --color-navy-700: #1f305d;
+  --color-navy-800: #18274f;
+  --color-navy-900: #14234b;
+  --color-navy-950: #0b1530;
+
+  --color-gold-50: #fbf6ec;
+  --color-gold-100: #f4e8cf;
+  --color-gold-200: #e9d3a3;
+  --color-gold-300: #ddbb78;
+  --color-gold-400: #d3ac67;
+  --color-gold-500: #c9a15b;
+  --color-gold-600: #a9833f;
+  --color-gold-700: #86672f;
+
+  --color-ivory: #faf8f3;
+  --color-sand: #f3efe6;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory font-sans text-slate-700 antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply text-navy-900;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection { @apply bg-gold-200 text-navy-950; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-gold-500; }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-px w-8 bg-gold-500;
+  }
+  .eyebrow-light { @apply text-gold-300; }
+  .eyebrow-light::before { @apply bg-gold-400; }
+
+  .h-section {
+    @apply font-display text-3xl leading-[1.15] font-medium tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem];
+  }
+  .lead { @apply text-base leading-relaxed text-slate-600 sm:text-lg; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition duration-200;
+  }
+  .btn-primary {
+    @apply bg-navy-900 text-white shadow-lg shadow-navy-900/15 hover:bg-navy-800 hover:shadow-navy-900/25;
+  }
+  .btn-gold {
+    @apply bg-gold-500 text-navy-950 shadow-lg shadow-gold-600/20 hover:bg-gold-400;
+  }
+  .btn-ghost {
+    @apply border border-navy-900/15 bg-white/60 text-navy-900 hover:border-navy-900/40 hover:bg-white;
+  }
+  .btn-ghost-light {
+    @apply border border-white/25 text-white hover:border-white/60 hover:bg-white/5;
+  }
+
+  .card {
+    @apply rounded-2xl border border-navy-900/[0.07] bg-white shadow-[0_1px_2px_rgba(11,21,48,0.04),0_8px_24px_-12px_rgba(11,21,48,0.12)];
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-navy-900/15 bg-white px-4 py-3 text-sm text-navy-950 transition placeholder:text-slate-400 focus:border-gold-500 focus:ring-4 focus:ring-gold-500/15 focus:outline-none;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(20 35 75 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(20 35 75 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .grid-lines-light {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Animasi muncul saat scroll: hanya aktif bila JS jalan & pengguna tidak memilih reduce-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--d, 0ms);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

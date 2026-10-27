@@ -1,0 +1,137 @@
+---
+import { Image } from 'astro:assets';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import BadgeCheck from '@lucide/astro/icons/badge-check';
+import ShieldCheck from '@lucide/astro/icons/shield-check';
+import Handshake from '@lucide/astro/icons/handshake';
+import Network from '@lucide/astro/icons/network';
+import Check from '@lucide/astro/icons/check';
+import heroImg from '../assets/img/hero-advisory.jpg';
+import { site } from '../data/site';
+
+const trust = [
+  { icon: ShieldCheck, title: 'Izin Praktik Resmi', sub: 'Kementerian Keuangan RI' },
+  { icon: BadgeCheck, title: 'Sertifikasi BKP Tingkat B', sub: 'Konsultan Pajak Terdaftar' },
+  { icon: Handshake, title: 'Kemitraan KAP', sub: 'Statutory Audit & AUP' },
+  { icon: Network, title: 'ERP & AI In-House', sub: 'Dikerjakan tim internal' },
+];
+---
+
+<section id="top" class="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24">
+  <div
+    class="grid-lines pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_30%_30%,black,transparent)]"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -top-40 -right-40 size-[36rem] rounded-full bg-gold-200/40 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-x relative grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+    <div class="lg:col-span-7">
+      <p class="eyebrow reveal">{site.tagline}</p>
+      <h1
+        class="reveal mt-6 font-display text-[2.5rem] leading-[1.08] font-medium tracking-tight text-navy-950 sm:text-5xl lg:text-[3.6rem]"
+        style="--d:80ms"
+      >
+        Kepatuhan pajak, pembukuan andal, dan teknologi cerdas dalam{' '}
+        <span class="text-gold-600 italic">satu&nbsp;mitra</span> terpercaya.
+      </h1>
+      <p class="lead reveal mt-6 max-w-xl" style="--d:160ms">
+        Avikara Group membantu perusahaan menengah di Indonesia membangun fondasi bisnis yang patuh
+        regulasi, siap diaudit, dan efisien berbasis ERP &amp; AI, didampingi konsultan pajak
+        berizin resmi.
+      </p>
+
+      <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" style="--d:240ms">
+        <a href="#kontak" class="btn btn-primary">
+          Jadwalkan Konsultasi
+          <ArrowRight class="size-4" aria-hidden="true" />
+        </a>
+        <a href="#layanan" class="btn btn-ghost">Lihat Layanan</a>
+      </div>
+
+      <ul
+        class="reveal mt-10 flex flex-col gap-3 text-sm text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-7"
+        style="--d:320ms"
+      >
+        {
+          ['Konsultan pajak berizin', 'Prinsip independensi terjaga', 'Tim teknologi in-house'].map(
+            (t) => (
+              <li class="flex items-center gap-2">
+                <span class="inline-flex size-5 items-center justify-center rounded-full bg-gold-100 text-gold-700">
+                  <Check class="size-3.5" stroke-width={3} aria-hidden="true" />
+                </span>
+                {t}
+              </li>
+            ),
+          )
+        }
+      </ul>
+    </div>
+
+    <div class="reveal relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none" style="--d:200ms">
+      <div
+        class="absolute -inset-3 translate-x-5 translate-y-5 rounded-[2rem] border border-gold-400/60"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative overflow-hidden rounded-[2rem] bg-navy-900 shadow-2xl shadow-navy-950/25">
+        <Image
+          src={heroImg}
+          alt="Konsultan meninjau dokumen laporan keuangan bersama klien"
+          widths={[480, 720, 960, 1200]}
+          sizes="(min-width: 1024px) 40vw, 90vw"
+          class="aspect-[4/5] w-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-navy-950/0 to-navy-950/10"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+
+      <div
+        class="card absolute -bottom-6 -left-3 flex max-w-[17rem] items-center gap-4 p-4 sm:-left-10"
+      >
+        <span
+          class="inline-flex size-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-gold-400"
+        >
+          <BadgeCheck class="size-6" aria-hidden="true" />
+        </span>
+        <span>
+          <span class="block text-sm font-semibold text-navy-900">Konsultan Pajak Terdaftar</span>
+          <span class="mt-0.5 block text-xs text-slate-500">BKP Tingkat B · Kemenkeu RI</span>
+        </span>
+      </div>
+
+      <div
+        class="absolute top-6 -right-2 hidden rounded-full bg-white/90 px-4 py-2 text-xs font-semibold tracking-wide text-navy-900 shadow-lg backdrop-blur sm:block lg:-right-6"
+      >
+        {site.motto}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Kredensial" class="border-y border-navy-900/[0.06] bg-white">
+  <ul class="container-x grid grid-cols-1 divide-navy-900/[0.06] sm:grid-cols-2 lg:grid-cols-4 lg:divide-x">
+    {
+      trust.map(({ icon: Icon, title, sub }, i) => (
+        <li class="reveal flex items-center gap-4 py-4 sm:py-6 lg:px-8 lg:first:pl-0" style={`--d:${i * 70}ms`}>
+          <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-gold-300 bg-gold-50 text-gold-700">
+            <Icon class="size-5" aria-hidden="true" />
+          </span>
+          <span>
+            <span class="block text-sm font-semibold text-navy-900">{title}</span>
+            <span class="block text-xs text-slate-500">{sub}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
