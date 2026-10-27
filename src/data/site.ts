@@ -60,8 +60,8 @@ export const services: Service[] = [
   {
     id: 'tax',
     title: 'Tax Compliance & Advisory',
-    unit: 'Lisensi KKP Riza Sukma Permana · BKP Level B',
-    desc: 'Pendampingan perpajakan oleh konsultan pajak terdaftar, dikelola di bawah lisensi KKP Riza Sukma Permana, dari kepatuhan rutin hingga pemeriksaan.',
+    unit: 'Lisensi Konsultan Riza Sukma Permana · BKP Level B',
+    desc: 'Pendampingan perpajakan oleh konsultan pajak terdaftar, dikelola di bawah lisensi Konsultan Riza Sukma Permana, dari kepatuhan rutin hingga pemeriksaan.',
     points: [
       'Asistensi SP2DK & pemeriksaan pajak',
       'Transfer Pricing Documentation (TP Doc)',
@@ -122,7 +122,7 @@ export const leaders: Leader[] = [
     role: 'Direktur',
     initials: 'RP',
     board: true,
-    bio: 'Direktur PT Avikara Sinar Konsultan dan pendiri KKP Riza Sukma Permana. Memegang izin praktik resmi dari Kementerian Keuangan RI dan bersertifikat Konsultan Pajak Level B (BKP B).',
+    bio: 'Direktur PT Avikara Sinar Konsultan dan pendiri Konsultan Riza Sukma Permana. Memegang izin praktik resmi dari Kementerian Keuangan RI dan bersertifikat Konsultan Pajak Level B (BKP B).',
   },
   {
     name: 'Adhy Sulaksono',
