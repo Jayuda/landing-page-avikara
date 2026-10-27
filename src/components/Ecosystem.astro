@@ -11,7 +11,7 @@ const units = [
   {
     icon: Landmark,
     name: 'Avikara Tax Advisory',
-    sub: 'Konsultan Riza S. Permana (BKP B)',
+    sub: 'Konsultan Riza S. Permana',
     desc: 'Tax compliance & advisory',
   },
   {
@@ -24,7 +24,7 @@ const units = [
     icon: Cpu,
     name: 'Avikara Technology',
     sub: 'ERP & AI',
-    desc: 'In-house IT advisory, system & AI integration',
+    desc: 'In-house IT advisory & accounting service, system & AI integration',
   },
   {
     icon: GraduationCap,
@@ -36,29 +36,40 @@ const units = [
 
 const steps = [
   {
-    title: 'Lead Acquisition',
-    desc: 'Identifikasi kebutuhan klien: pajak, akuntansi, ERP/AI, dan audit.',
+    title: 'Client Intake & Referral',
+    desc: 'Identifikasi kebutuhan klien (pajak, accounting, ERP/AI, audit) dan pencatatan asal rujukan.',
     owner: 'Avikara & Partner',
+    output: 'Client Intake Form',
   },
   {
     title: 'Initial Assessment',
-    desc: 'Evaluasi kelayakan, uji independensi, dan penyusunan ruang lingkup kerja.',
+    desc: 'Evaluasi kelayakan dan uji independensi.',
     owner: 'Avikara & Partner',
+    output: 'Conflict Check Clearance Sheet',
   },
   {
-    title: 'Contracting',
-    desc: 'Penerbitan Engagement Letter atau MoU resmi dengan klien.',
-    owner: 'Penyedia jasa utama',
+    title: 'Assessment & Proposal',
+    desc: 'Evaluasi cakupan kerja, penentuan professional fee, dan porsi referral/management fee.',
+    owner: 'Lead Partner terkait',
+    output: 'Proposal & Quotation',
+  },
+  {
+    title: 'Contracting & NDA',
+    desc: 'Engagement Letter / MoU terpisah untuk menjaga batas independensi, serta penandatanganan NDA.',
+    owner: 'Managing Partner & Klien',
+    output: 'Signed EL & NDA',
   },
   {
     title: 'Execution',
-    desc: 'Implementasi ERP/AI, pembukuan dan pajak, atau audit oleh tim terkait.',
-    owner: 'Tim operasional',
+    desc: 'Implementasi ERP/AI, pembukuan, pajak, atau audit dengan supervisi teknis dan pembatasan akses data antar entitas.',
+    owner: 'Tim operasional / Lead Manager',
+    output: 'Working Papers',
   },
   {
-    title: 'Post Project Review',
-    desc: 'Evaluasi kepuasan klien dan tindak lanjut perbaikan berkelanjutan.',
-    owner: 'Avikara & Partner',
+    title: 'Post Project Review & Settlement',
+    desc: 'Penyampaian laporan akhir ke klien dan rekonsiliasi fee sharing sesuai regulasi & kode etik.',
+    owner: 'Managing Partner',
+    output: 'Laporan Akhir & Settlement Sheet',
   },
 ];
 ---
@@ -88,7 +99,7 @@ const steps = [
           class="relative rounded-2xl border border-gold-400/40 bg-gradient-to-b from-navy-800 to-navy-900 p-6 text-center shadow-2xl shadow-black/30"
         >
           <Image src={markWhite} alt="" width={60} height={54} densities={[1, 2]} class="mx-auto h-11 w-auto" />
-          <p class="mt-4 text-lg font-semibold tracking-[0.2em]">PT AVIKARA SINAR KONSULTAN</p>
+          <p class="mt-4 text-lg font-semibold tracking-[0.2em]">AVIKARA GROUP</p>
           <p class="mt-1 text-xs tracking-[0.18em] text-gold-300 uppercase">Umbrella Brand</p>
         </div>
         <span class="absolute top-full left-1/2 hidden h-10 w-px -translate-x-1/2 bg-gold-400/60 lg:block" aria-hidden="true"></span>
@@ -148,9 +159,9 @@ const steps = [
       </h2>
     </div>
 
-    <ol class="relative mt-16 grid gap-8 md:grid-cols-5 md:gap-6">
+    <ol class="relative mt-16 grid gap-8 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-6">
       <span
-        class="absolute top-7 right-[10%] left-[10%] hidden h-px bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 md:block"
+        class="absolute top-7 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 lg:block"
         aria-hidden="true"
       >
       </span>
@@ -164,6 +175,7 @@ const steps = [
               <h3 class="text-base font-semibold md:mt-5">{s.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
               <p class="mt-3 inline-block rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700">{s.owner}</p>
+              <p class="mt-2 text-xs text-slate-500">Output: <span class="font-medium text-navy-800">{s.output}</span></p>
             </div>
           </li>
         ))
