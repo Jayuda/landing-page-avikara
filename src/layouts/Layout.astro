@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 const {
-  title = 'Avikara Group — Konsultan Pajak, Akuntansi & Solusi ERP/AI',
+  title = 'PT Avikara Sinar Konsultan — Konsultan Pajak, Akuntansi & Solusi ERP/AI',
   description = site.description,
 } = Astro.props;
 
@@ -18,7 +18,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: site.name,
-  alternateName: 'KKP Riza Sukma Permana',
+  legalName: site.legalName,
+  alternateName: ['Avikara Group', 'KKP Riza Sukma Permana'],
   url: site.url,
   logo: new URL('/apple-touch-icon.png', site.url).href,
   image: ogImage,
@@ -29,7 +30,7 @@ const jsonLd = {
   ...(site.phone && { telephone: site.phone }),
   ...(site.address && { address: site.address }),
   founder: { '@type': 'Person', name: 'Riza Sukma Permana' },
-  knowsAbout: ['Konsultasi Pajak', 'Akuntansi', 'Transfer Pricing', 'ERP', 'Artificial Intelligence'],
+  knowsAbout: ['Konsultasi Pajak', 'Akuntansi', 'Transfer Pricing', 'ERP', 'Artificial Intelligence', 'Pelatihan Bisnis'],
 };
 ---
 

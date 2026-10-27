@@ -1,6 +1,6 @@
 # avikara.id — Landing Page
 
-Situs statis Avikara Group, dibangun dengan Astro + Tailwind CSS.
+Situs statis PT Avikara Sinar Konsultan (Avikara Group), dibangun dengan Astro + Tailwind CSS.
 
 ## Menjalankan
 
@@ -30,7 +30,7 @@ Arahkan domain `avikara.id` ke hosting tersebut.
 
 ## Sebelum go-live
 
-- [ ] Isi kontak resmi di `src/data/site.ts` (WhatsApp, telepon, alamat) dan pastikan `info@avikara.id` aktif
+- [ ] Isi kontak resmi di `src/data/site.ts` (WhatsApp, telepon, alamat). Email sudah diset ke `kkp.rizasukmapermana@gmail.com`
 - [ ] Ganti logo dengan file resmi resolusi tinggi (lihat `CREDITS.md`)
 - [ ] (Opsional) Foto asli pimpinan, menggantikan inisial
 

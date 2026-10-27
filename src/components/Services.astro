@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import Landmark from '@lucide/astro/icons/landmark';
 import Calculator from '@lucide/astro/icons/calculator';
-import Boxes from '@lucide/astro/icons/boxes';
 import BrainCircuit from '@lucide/astro/icons/brain-circuit';
 import GraduationCap from '@lucide/astro/icons/graduation-cap';
 import Check from '@lucide/astro/icons/check';
@@ -12,7 +11,6 @@ import { services, type IconName } from '../data/site';
 const icons: Record<IconName, typeof Landmark> = {
   landmark: Landmark,
   calculator: Calculator,
-  boxes: Boxes,
   brain: BrainCircuit,
   academy: GraduationCap,
 };
@@ -33,30 +31,24 @@ const icons: Record<IconName, typeof Landmark> = {
       </p>
     </div>
 
-    <ul class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-6">
+    <ul class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
       {
         services.map((s, i) => {
           const Icon = icons[s.icon];
-          const wide = i < 2;
           return (
             <li
               class:list={[
                 'card reveal group flex flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(11,21,48,0.35)]',
-                wide ? 'lg:col-span-3' : 'lg:col-span-2',
-                i === 4 && 'md:col-span-2 lg:col-span-2',
               ]}
-              style={`--d:${(i % 3) * 90}ms`}
+              style={`--d:${(i % 2) * 90}ms`}
             >
               <div class="relative overflow-hidden">
                 <Image
                   src={s.image}
                   alt=""
                   widths={[480, 720, 960]}
-                  sizes={wide ? '(min-width: 1024px) 40vw, (min-width: 768px) 50vw, 92vw' : '(min-width: 1024px) 27vw, (min-width: 768px) 50vw, 92vw'}
-                  class:list={[
-                    'w-full object-cover transition duration-700 group-hover:scale-[1.04]',
-                    wide ? 'aspect-[16/8]' : 'aspect-[16/10]',
-                  ]}
+                  sizes="(min-width: 768px) 50vw, 92vw"
+                  class="aspect-[16/8] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-navy-950/55 to-transparent" aria-hidden="true" />
                 <span class="absolute bottom-4 left-5 inline-flex size-12 items-center justify-center rounded-xl bg-white text-navy-900 shadow-lg">

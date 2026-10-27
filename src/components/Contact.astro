@@ -156,7 +156,7 @@ const channels = [
     const d = new FormData(form);
     const get = (k: string) => String(d.get(k) ?? '').trim();
     const lines: (string | null)[] = [
-      `Halo Avikara Group, saya ingin berkonsultasi mengenai: ${get('topic')}`,
+      `Halo Avikara, saya ingin berkonsultasi mengenai: ${get('topic')}`,
       '',
       `Nama: ${get('name')}`,
       get('company') ? `Perusahaan: ${get('company')}` : null,
