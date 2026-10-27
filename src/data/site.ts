@@ -15,7 +15,7 @@ export const site = {
   positioning: 'Holding Brand & Registered Tax Advisory (BKP Level B)',
   url: 'https://avikara.id',
   tagline: 'Building Better Business Through Intelligence.',
-  motto: 'Insight. Integrity. Innovation.',
+  motto: 'Solusi Tepat, Nilai Berkelanjutan.',
   description:
     'PT Avikara Sinar Konsultan adalah One-Stop Intelligent Business Advisory: konsultan pajak terdaftar (BKP Level B), jasa akuntansi, solusi ERP & AI in-house, serta pelatihan bisnis untuk perusahaan di Indonesia.',
   email: 'kkp.rizasukmapermana@gmail.com',
@@ -27,14 +27,6 @@ export const site = {
 
 /** Data legal perseroan (sumber: "Avikara Sinar Konsultan - Summary.docx"). */
 export const company = {
-  authorizedCapital: 'Rp 1.000.000.000',
-  paidUpCapital: 'Rp 250.000.000',
-  shareholders: [
-    { name: 'Riza Sukma Permana', share: 50, amount: 'Rp 125.000.000' },
-    { name: 'Sudirman Wu', share: 20, amount: 'Rp 50.000.000' },
-    { name: 'Suwati', share: 15, amount: 'Rp 37.500.000' },
-    { name: 'Welly Susanti', share: 15, amount: 'Rp 37.500.000' },
-  ],
   kbli: [
     { code: '69202', label: 'Aktivitas Konsultasi Pajak' },
     { code: '69201', label: 'Aktivitas Akuntansi, Pembukuan dan Pemeriksa' },
@@ -137,12 +129,6 @@ export const leaders: Leader[] = [
     role: 'Tax & Accounting Partner',
     initials: 'AS',
     bio: 'Praktisi senior dengan pengalaman lebih dari belasan tahun di asistensi pemeriksaan pajak, layanan akuntansi, serta perancangan proses bisnis perusahaan.',
-  },
-  {
-    name: 'Y. Nunung Pamungkas Jayuda',
-    role: 'IT Partner',
-    initials: 'NJ',
-    bio: 'Pengembang perangkat lunak berpengalaman yang memimpin perancangan dan integrasi solusi teknologi, ERP, serta kecerdasan buatan (AI) di Avikara.',
   },
   {
     name: 'Sudirman Wu',

@@ -17,8 +17,8 @@ non-komersial, tanpa kewajiban atribusi (dicantumkan di sini sebagai praktik bai
 
 ## Logo, ikon & font
 
-- Logo "AG" diambil dari dokumen profil `AVIKARA GROUP - R1.docx` (milik Avikara Group).
-  File sumber resolusinya rendah (460×430 px); ganti `src/assets/brand/mark.png` dan
+- Logo "A + bintang" PT Avikara Sinar Konsultan diambil dari `Avikara Sinar Konsultan - Summary.docx`.
+  File sumber resolusinya rendah (440×440 px); ganti `src/assets/brand/mark.png` dan
   `mark-white.png` dengan file SVG/PNG resmi bila tersedia.
 - Ikon: [Lucide](https://lucide.dev) (lisensi ISC).
 - Font: Plus Jakarta Sans & Fraunces via Fontsource (SIL Open Font License).
